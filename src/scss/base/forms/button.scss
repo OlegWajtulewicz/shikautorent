@@ -1,0 +1,105 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+.button {
+	display: inline-flex;
+	//padding: 0px 40px;
+	@include adaptiveValue("padding-right", 40, 25);
+	@include adaptiveValue("padding-left", 40, 25);
+	@include adaptiveValue("font-size", 16, 14);
+	align-items: center;
+	white-space: nowrap;
+	color: #fff;
+	//background: transparent;
+	background: linear-gradient(115deg, #e8b98b 1.46%, #825b4d 101.44%);
+	text-align: center;
+	justify-content: center;
+	font-weight: 500;
+	line-height: 50px; /* 325% */
+	letter-spacing: 0.5px;
+	border-radius: 2px;
+	border: 2px solid $mainColor;
+	transition: all .3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			background: linear-gradient(310deg, #e8b98b 1.46%, #825b4d 101.44%);
+			color: #fff;
+			border: 2px solid $borderColor;
+		}
+	}
+	&:active {
+		background: linear-gradient(90.16deg, #e8b98b 1.46%, #825b4d 101.44%);
+		color: #fff;
+		border: 2px solid $borderColor;
+	}
+	&--fw {
+		width: 100%;
+	}
+	&--border {
+		border: 2px solid $borderColor;
+		filter: blur(0.5px);
+		background: #00000017;
+		&:active {
+			background: linear-gradient(90.16deg, #e8b98b 1.46%, #825b4d 101.44%);
+			color: #fff;
+			border: 2px solid $borderColor;
+		}
+		
+	}
+	&-outline {
+		white-space: nowrap;
+		display: inline-flex;
+		background-color: transparent;
+		border: 2px solid $mainColor;
+		color: $mainColor;
+		@include adaptiveValue("padding-right", 40, 25);
+		@include adaptiveValue("padding-left", 40, 25);
+		@include adaptiveValue("font-size", 16, 14);
+		align-items: center;
+		text-align: center;
+		font-weight: 700;
+		line-height: 50px; /* 325% */
+		letter-spacing: 0.5px;
+		border-radius: 4px;
+		transition: all .3s ease 0s;
+		justify-content: center;
+		@media (any-hover: hover){
+			&:hover {
+				background: $mainColor;
+				color: #fff;
+			}
+		}
+		&:active {
+			background: $mainColor;
+			color: #fff;
+		}
+	}
+	&-mini {
+		white-space: nowrap;
+		display: inline-flex;
+		background-color: transparent;
+		@include adaptiveValue("padding-right", 20, 15);
+		@include adaptiveValue("padding-left", 20, 15);
+		@include adaptiveValue("font-size", 16, 14);
+		align-items: center;
+		text-align: center;
+		line-height: 30px; /* 325% */
+		letter-spacing: 0.5px;
+		border-radius: 2px;
+		transition: all .3s ease 0s;
+		justify-content: center;
+		border: 1px solid $borderColor;
+		filter: blur(0.5px);
+		background: #00000017;
+		&:hover {
+			background: linear-gradient(90.16deg, #e8b98b 1.46%, #825b4d 101.44%);
+			color: #fff;
+			border: 1px solid $borderColor;
+		}
+		&:active {
+			background: linear-gradient(90.16deg, #e8b98b 1.46%, #825b4d 101.44%);
+			color: #fff;
+			border: 1px solid $borderColor;
+		}
+	}
+}

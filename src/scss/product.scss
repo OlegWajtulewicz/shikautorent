@@ -1,0 +1,419 @@
+.ask-questions {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 100, 30);
+    background: $bgColor;
+    position: relative;
+    border-top: 0.0625rem solid rgba(218, 219, 221, 0.5);
+		
+    // .careers-spoller__container
+
+    &__container {
+        display: grid;
+    }
+
+    // .careers-spoller__spollers
+
+    &__title {
+        @include adaptiveValue("font-size", 32, 20);
+        @include adaptiveValue("padding-bottom", 60, 20);
+    }  
+}
+.spollers {
+    display: flex;
+    padding: toRem(10) toRem(5);
+    justify-content: space-between;
+    // .spollers-careers__btn
+
+    &__btn {
+        //padding: 0px 32px;
+        height: toRem(44);
+        @media (max-width: $mobileSmall) {
+            padding-left: toRem(8);
+            padding-right: toRem(8);  
+        }
+    }
+
+    // .spollers-careers__item
+
+    &__item {
+    }
+
+    // .spollers-careers__title
+
+    &__title {
+        color: $textColor;
+        font-size: toRem(20);
+        font-weight: 300;
+        line-height: 150%; /* 42px */
+        display: flex;
+        align-items: center;
+        text-align: start;
+        gap: toRem(20);
+        font-family: $fontFamily !important;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        margin-bottom: toRem(10);
+        &::before{
+            font-family: 'icomoon' !important;
+            color: $mainGold;
+            font-size: toRem(24);
+            height: toRem(24);
+            transition: transform 0.3s ease 0s;
+            display: grid;
+            align-content: center;
+        }
+        &._spoller-active {
+            &::before {
+                transition: transform 0.3s ease 0s;
+                transform: rotate(180deg);
+                opacity: 0;
+            }
+        }
+        &::after{
+            content: "\e93b";
+            font-family: 'icomoon' !important;
+            color: $mainGold;
+            font-size: toRem(24);
+            transition: transform 0.3s ease 0s;
+            position: absolute;
+            opacity: 0;
+        }
+        &._spoller-active {
+            &::after{
+                transition: transform 0.3s ease 0s;
+                transform: rotate(180deg);
+                opacity: 1;
+            }
+        }
+        @media (max-width: $mobile) {
+            @include adaptiveValue("font-size", 28, 14, 1700, 2320, 1); 
+        }
+    }
+
+    // .spollers-careers__body
+
+    &__body {
+        padding: toRem(12) toRem(12) toRem(12) toRem(40);
+        background: $mainColor;
+    }
+
+    // .spollers-careers__wrapper
+
+    &__wrapper {
+        max-width: toRem(767);
+        display: flex;
+        flex-direction: column;
+        gap: toRem(24);
+    }
+
+    // .spollers-careers__descr
+
+    &__descr {
+        color: $textOpacity;
+        line-height: 160%; /* 25.6px */
+    }
+
+    // .spollers-careers__card
+
+    &__card {
+    }
+}
+
+.card-spollers {
+    display: grid;
+    gap: toRem(24);
+
+    // .card-spollers__title
+
+    &__title {
+        color: $textOpacity;
+        line-height: 160%; /* 25.6px */
+    }
+
+    // .card-spollers__list
+
+    &__list {
+        padding-left: toRem(16);
+        
+    }
+
+    // .card-spollers__item
+
+    &__item {
+        position: relative;
+        color: $textOpacity;
+        line-height: 160%; /* 25.6px */
+        &::before{
+            content:'';
+            flex-shrink: 0;
+            height: toRem(4);
+            width: toRem(4);
+            border-radius: 50%;
+            position: absolute;
+            left: toRem(-16);
+            top: toRem(11);
+            background: $mainColor;
+        }
+    }
+}
+
+//========================================================================================================================================================
+.careers-form {
+    @include adaptiveValue("padding-top", 100, 30);
+    @include adaptiveValue("padding-bottom", 150, 40);
+    position: relative;
+    background: $bgColor;
+    border-top: 0.0625rem solid rgba(218, 219, 221, 0.5);
+
+    // .careers-form__container
+
+    &__container {
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        @include adaptiveValue("gap", 135, -35);
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr; 
+            gap: toRem(30);
+        }
+    }
+
+    // .careers-form__info
+
+    &__info {
+        max-width: toRem(495);
+    }
+
+    // .careers-form__title
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: em(40, 46);
+        }
+    }
+
+    // .careers-form__descr
+
+    &__descr {
+        color: #d5d6da;
+        font-size: 1.25rem;
+        line-height: 150%; /* 30px */
+    }
+
+    // .careers-form__form
+
+    &__form {
+        position: relative;
+        .form._sending::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        .form {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: toRem(30);
+            @media (max-width:$mobile){
+                grid-template-columns: 1fr; 
+                justify-items: center;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(184, 184, 184, 0) url("@img/loading.gif") center / 50px no-repeat;
+                border-radius: 4px;
+                opacity: 1;
+                visibility: hidden;
+                transition: all 0.5s ease 0s;
+            }    
+            ._sending::after {
+                    opacity: 1;
+                    visibility: visible;
+            }
+        }
+        .form-form {
+            display: grid;
+            padding-top: 0 !important;
+            margin-bottom: 0 !important;
+            //grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+            column-gap: 1.875rem;
+            row-gap: 1.5625rem;
+            @media (min-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form__item textarea {
+                background-color: transparent;
+                margin-bottom: toRem(0);
+                padding: 20px 29px;
+                //margin-bottom: 3rem;
+                min-height: 8rem;
+            }
+            .form__item {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                background-color: transparent;
+                &.email {
+                    //height: toRem(86);
+                }
+            }
+            .form__item.message {
+                @media (min-width: $tablet) {
+                   grid-column: 1 / 3;   
+                }  
+            }
+            
+            .select {
+                display: grid;
+                gap: 0.5rem; 
+            }
+            .checkbox-form {
+                position: relative;
+                // .checkbox-form__body
+            
+                &__body {
+                    display: flex;
+                    flex-direction: column;
+                    grid-column: unset;
+                    justify-content: start;
+                    align-items: flex-start;
+                    @media (min-width: $tablet) {
+                        grid-column: 1 / 3; 
+
+                    }
+                }
+            
+                // .checkbox-form__input
+            
+                &__input {
+                }
+            
+                // .checkbox-form__text
+            
+                &__text {
+                    margin-bottom: toRem(40) !important;
+                    color: $textOpacity;
+                    position: relative;
+                    padding-left: toRem(25);
+                    &::before{
+                        content: "";
+                        left: 0;
+                        top: 0px;
+                        position: absolute;
+                        width: 1rem;
+                        height: 1rem;
+                        z-index: 2;
+                        border-radius: 0.1875rem;
+                        transition: all 0.3s;
+                        background-color: #F4F5F6;
+                        border: 0.0625rem solid #dddad7;
+                        
+                    }
+                    &::after{
+                        font-family: "icomoon" !important;
+                        //content: "\e921";
+                        color: #F4F5F6;
+                        position: absolute;
+                        top: 0.0625rem;
+                        left: 0.1875rem;
+                        font-size: 0.625rem;
+                        z-index: 2;
+                        
+                    }
+                }
+            
+                // .checkbox-form__button
+            
+                &__button {
+                    grid-column: unset;
+                    @media (max-width: $mobileSmall) {
+                          width: 100%;
+                    }
+                }
+            }
+            .file-form {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                grid-column: 1 / 3;
+                @media (max-width: $tablet) {
+                    grid-column: unset;
+                }
+                // .file-form__item
+            
+                &__item {
+
+                }
+            
+                // .file-form__input
+            
+                &__input {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    font-size: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            
+                // .file-form__button
+            
+                &__button {
+                    font-family: $fontFamily !important;
+                    display: flex;
+                    gap: toRem(12);
+                    color: $textOpacity;
+                    line-height: 160%; /* 25.6px */
+                    cursor: pointer;
+                    &::before{
+                        font-family: 'icomoon' !important;
+                        color: $mainGold;
+                        font-size: toRem(26);
+                    }
+                }
+            
+                // .file-form__name
+            
+                &__name {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    font-size: 0.625rem;
+                    color: $textOpacity;
+                    padding-top: toRem(4);
+                    font-size: toRem(10);
+                }
+            }
+        }
+        
+    }
+
+    // .careers-form__label
+
+    &__label {
+        line-height: 160%;
+        gap: toRem(8);
+        display: grid;
+
+        color: #fff;
+        font-size: 1.125rem;
+        margin-top: 0.9375rem;
+        font-weight: 300;
+    }
+
+    // .careers-form__select
+
+    &__select {
+    }
+}
+.checkbox-form .checkbox-form__input:checked + .checkbox-form__text::before {
+    background: linear-gradient(90.16deg,#e8c78b 1.46%,#857154 101.44%);
+}
